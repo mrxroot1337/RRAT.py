@@ -30,6 +30,7 @@ cat <file>          | Output a file to the screen.
 client <id>         | Connect to a client.
 clients             | List connected clients.
 execute <command>   | Execute a command on the target.
+exit                | Exit the terminal
 goodbye             | Teardown the server and selfdestruct all clients.
 help                | Show this help menu.
 kill                | Kill the client connection.
